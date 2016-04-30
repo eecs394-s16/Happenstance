@@ -16,6 +16,8 @@
   <script src="/components/supersonic/supersonic.js"></script>
   <script src="/components/webcomponentsjs/webcomponents.js"></script>
 
+  <script type="text/javascript" src="//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js"></script>
+
   <% _.each(yield.modules, function(module) { %>
   <script src="/app/<%= module %>.js"></script>
   <% }); %>
