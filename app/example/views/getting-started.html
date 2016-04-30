@@ -1,4 +1,4 @@
-<div class="padding">
+<div class="padding" ng-controller="VideoController">
 
   <super-navbar>
     <super-navbar-title>
@@ -6,18 +6,21 @@
     </super-navbar-title>
   </super-navbar>
 
-<video width="400" controls>
-  <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" webkit-playsinline="true">
+<video width="340" id="myvideo" webkit-playsinline="true" autoplay>
+  <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
+<button ng-click="play()"> click to play and pause</button>
 
-<p>
+<!-- <p>
 Video courtesy of 
 <a href="http://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.
-</p>
+</p> -->
 
-<video class="afterglow" id="myvideo" width="400" height="400" webkit-playsinline="true" autoplay>
+<!-- 
+<video class="afterglow" id="yourvideo" width="300" height="300" webkit-playsinline="true" controls="false" autoplay>
       <source type="video/mp4" src="http://www.w3schools.com/html/mov_bbb.mp4"/>
 </video>
+<p>{{test}}</p> -->
 
 </div>
