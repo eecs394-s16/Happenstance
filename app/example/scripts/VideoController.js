@@ -1,25 +1,41 @@
 angular
   .module('example')
   .controller('VideoController', function($scope, supersonic) {
-  	var video = document.getElementById("myvideo");
-    var seekBar = document.getElementById("seek-bar");
+  // Video
+  var video = document.getElementById("myvideo");
+
+  // Buttons
+  var playButton = document.getElementById("play-pause");
+  var fullScreenButton = document.getElementById("full-screen");
+
+  // Sliders
+  var seekBar = document.getElementById("seek-bar");
+  var volumeBar = document.getElementById("volume-bar");
+
 
 	if (video.hasAttribute("controls")) {
 	    video.removeAttribute("controls")   
     }
-    video.controls = false
-    $scope.play = function() {
-    	player = document.getElementById('myvideo')
-    	var paused = player.paused
-    	if (paused == true) {
-    		player.play()
-    	} else {
-    		player.pause()
-    	}
-    }
-    $scope.test = "hi"
+  video.controls = false; 
 
+    // Event listener for the play/pause button
+    playButton.addEventListener("click", function() {
+      if (video.paused == true) {
+        // Play the video
+        video.play();
 
+        // Update the button text to 'Pause'
+        playButton.innerHTML = "Pause";
+      } else {
+        // Pause the video
+        video.pause();
+
+        // Update the button text to 'Play'
+        playButton.innerHTML = "Play";
+      }
+    });
+
+    
     // Event listener for the seek bar
     seekBar.addEventListener("change", function() {
       // Calculate the new time
@@ -49,7 +65,16 @@ angular
     });
 
 
-
+    // Event listener for the full-screen button
+    fullScreenButton.addEventListener("click", function() {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen(); // Firefox
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen(); // Chrome and Safari
+      }
+    });
 
 
 
