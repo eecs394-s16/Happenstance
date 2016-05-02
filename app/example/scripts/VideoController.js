@@ -25,13 +25,13 @@ angular
         video.play();
 
         // Update the button text to 'Pause'
-        playButton.innerHTML = "Pause";
+        playButton.innerHTML = "&#10073;&#10073;";
       } else {
         // Pause the video
         video.pause();
 
         // Update the button text to 'Play'
-        playButton.innerHTML = "Play";
+        playButton.innerHTML = "&#9654;";
       }
     });
 
