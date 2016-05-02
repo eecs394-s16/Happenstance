@@ -1,8 +1,6 @@
-angular
-  .module('example')
-  .controller('VideoController', function($scope, supersonic) {
-  // Video
-  var video = document.getElementById("myvideo");
+angular.module('example').controller('ModalCtrl', function ($scope) {
+
+   var video = document.getElementById("myvideo");
 
   // Buttons
   var playButton = document.getElementById("play-pause");
@@ -13,8 +11,8 @@ angular
   var volumeBar = document.getElementById("volume-bar");
 
 
-	if (video.hasAttribute("controls")) {
-	    video.removeAttribute("controls")
+  if (video.hasAttribute("controls")) {
+      video.removeAttribute("controls")
     }
   video.controls = false;
 
@@ -64,20 +62,4 @@ angular
       video.play();
     });
 
-
-
-
-
-    $scope.openModal = function() {
-      var modalView = new supersonic.ui.View("example#modal");
-      var options = {
-        animate: true
-      }
-
-      supersonic.ui.modal.show(modalView, options);
-    };
-
-
-  });
-
-
+});
