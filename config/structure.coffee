@@ -12,7 +12,7 @@ module.exports =
     {
       title: "Settings"
       id: "settings"
-      location: "example#settings"
+      location: "example#learn-more"
     }
     {
       title: "Internet"
