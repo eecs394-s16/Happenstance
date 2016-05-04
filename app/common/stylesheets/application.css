@@ -104,3 +104,12 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
  background: rgba(8, 8, 8, 0.18);
 }
+
+/* google map CSS */
+#googleMap {
+    width:100%;
+    top:0px;
+    left:0px;
+    height: 555px;
+	/*height: 100%;*/
+}
