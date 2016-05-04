@@ -24,13 +24,13 @@ angular
         video.play();
 
         // Update the button text to 'Pause'
-        playButton.innerHTML = "&#10073;&#10073;";
+        playButton.innerHTML = '<i class="icon super-pause orange"></i>';
       } else {
         // Pause the video
         video.pause();
 
         // Update the button text to 'Play'
-        playButton.innerHTML = "&#9654;";
+        playButton.innerHTML = '<i class="icon super-play orange"></i>';
       }
     });
 
@@ -99,13 +99,13 @@ angular
         audio.play();
 
         // Update the button text to 'Pause'
-        playButtonAudio.innerHTML = "&#10073;&#10073;";
+        playButtonAudio.innerHTML = '<i class="icon super-pause orange"></i>';
       } else {
         // Pause the video
         audio.pause();
 
         // Update the button text to 'Play'
-        playButtonAudio.innerHTML = "&#9654;";
+        playButtonAudio.innerHTML = '<i class="icon super-play orange"></i>';
       }
     });
 
