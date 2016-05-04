@@ -15,9 +15,9 @@ module.exports =
       location: "example#settings"
     }
     {
-      title: "Internet"
-      id: "internet"
-      location: "http://google.com" # URLs are supported!
+      title: "Map"
+      id: "map"
+      location: "example#map" # URLs are supported!
     }
   ]
 
