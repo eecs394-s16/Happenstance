@@ -38,8 +38,9 @@ tab-bar-item#settings {
   background-image: url(icons/cog.svg);
 }
 
-tab-bar-item#index {
-  background-image: url(icons/home.svg);
+tab-bar-item#home {
+  background-image: url(icons/happenstance.png);
+  /*background-color: #00635D;*/
 }
 
 tab-bar-item#internet {
