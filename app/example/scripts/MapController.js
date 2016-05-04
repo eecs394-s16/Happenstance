@@ -1,7 +1,9 @@
 angular
   .module('example')
-  .controller('MapController', function($scope, supersonic) {
-
+  .controller('MapController', function($rootScope, $scope, supersonic) {
+  	$rootScope.options = {
+	  animate: true
+	};
  //  	var map;
 	// $scope.initMap = function() {
 	//   map = new google.maps.Map(document.getElementById('map'), {
@@ -20,16 +22,33 @@ angular
 	// 	console.log("map initializing...");
 	// 	$scope.map = new google.maps.Map(document.getElementById("map"), options);
 	// };
-
+	$scope.myCenter = new google.maps.LatLng(42.056897,-87.6792367);
 	function initialize() {
-  var mapProp = {
-    center:new google.maps.LatLng(51.508742,-0.120850),
-    zoom:5,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
+	  var mapProp = {
+	    center: $scope.myCenter,
+	    zoom:12,
+	    mapTypeId:google.maps.MapTypeId.ROADMAP
+	  };
+	  $scope.map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+	
+	  	//add marker
+
+	  $scope.marker = new google.maps.Marker({
+	  position: $scope.myCenter
+	  });
+
+	  $scope.marker.setMap($scope.map);
+
+	  // add marker event listener
+	  google.maps.event.addListener($scope.marker,'click',function() {
+	  	alert("modal is going to show up!");
+	 	supersonic.ui.modal.show('modal', $rootScope.options);
+	  });
+
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+
 
 
   });

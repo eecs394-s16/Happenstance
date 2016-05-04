@@ -107,6 +107,10 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /* google map CSS */
-#map {
-	height: 100%;
+#googleMap {
+    width:100%;
+    top:0px;
+    left:0px;
+    height: 555px;
+	/*height: 100%;*/
 }
