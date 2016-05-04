@@ -4,19 +4,18 @@ angular
   // Video
   var video = document.getElementById("myvideo");
 
+  //Audio
+  var audio = document.getElementById("myaudio");
+
   // Buttons
   var playButton = document.getElementById("play-pause");
   var fullScreenButton = document.getElementById("full-screen");
+  var playButtonAudio = document.getElementById("play-pause-audio");
 
   // Sliders
   var seekBar = document.getElementById("seek-bar");
   var volumeBar = document.getElementById("volume-bar");
-
-
-	if (video.hasAttribute("controls")) {
-	    video.removeAttribute("controls")   
-    }
-  video.controls = false; 
+  var seekBarAudio = document.getElementById("seek-bar-audio");
 
     // Event listener for the play/pause button
     playButton.addEventListener("click", function() {
@@ -64,18 +63,51 @@ angular
       video.play();
     });
 
+    // FOR AUDIO
+    // Event listener for the seek bar
+    seekBarAudio.addEventListener("change", function() {
+      // Calculate the new time
+      var time = audio.duration * (seekBarAudio.value / 100);
 
-    // Event listener for the full-screen button
-    fullScreenButton.addEventListener("click", function() {
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.mozRequestFullScreen) {
-        video.mozRequestFullScreen(); // Firefox
-      } else if (video.webkitRequestFullscreen) {
-        video.webkitRequestFullscreen(); // Chrome and Safari
-      }
+      // Update the video time
+      audio.currentTime = time;
     });
 
+    // Update the seek bar as the video plays
+    audio.addEventListener("timeupdate", function() {
+      // Calculate the slider value
+      var value = (100 / audio.duration) * audio.currentTime;
+
+      // Update the slider value
+      seekBarAudio.value = value;
+    });
+
+    // Pause the video when the slider handle is being dragged
+    seekBarAudio.addEventListener("mousedown", function() {
+      audio.pause();
+    });
+
+    // Play the video when the slider handle is dropped
+    seekBarAudio.addEventListener("mouseup", function() {
+      audio.play();
+    });
+
+     // Event listener for the play/pause button
+    playButtonAudio.addEventListener("click", function() {
+      if (audio.paused == true) {
+        // Play the video
+        audio.play();
+
+        // Update the button text to 'Pause'
+        playButtonAudio.innerHTML = "&#10073;&#10073;";
+      } else {
+        // Pause the video
+        audio.pause();
+
+        // Update the button text to 'Play'
+        playButtonAudio.innerHTML = "&#9654;";
+      }
+    });
 
 
   });
