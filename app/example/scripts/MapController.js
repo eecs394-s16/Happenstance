@@ -41,8 +41,9 @@ angular
 
 	  // add marker event listener
 	  google.maps.event.addListener($scope.marker,'click',function() {
+	  	var modalView = new supersonic.ui.View("example#modal");
 	  	alert("modal is going to show up!");
-	 	supersonic.ui.modal.show('modal', $rootScope.options);
+	 	supersonic.ui.modal.show(modalView, $rootScope.options);
 	  });
 
 	}
