@@ -4,7 +4,7 @@
  ***********************************************************/
 
 navigation-bar {
-  background-color: #00B5FF;
+  background-color: #ff500a;
   color: #ffffff;
 }
 
@@ -25,13 +25,13 @@ tab-bar {
 }
 
 tab-bar tab-bar-item {
-  color: #b0b1b4;
+  color: #ff500a;
   font-family: "Avenir";
   font-size: 10px;
 }
 
 tab-bar tab-bar-item:selected {
-  color: #1596f7;
+  color: #ff500a;
 }
 
 tab-bar-item#settings {
