@@ -82,5 +82,36 @@ angular
 
 
 
+	var onSuccess = function(position) {
+		var icon = { 
+		   url: 'http://developerdrive.developerdrive.netdna-cdn.com/wp-content/uploads/2013/08/ddrive.png'
+		};
+
+		var marker = new google.maps.Marker({
+		   position: {lat: position.coords.latitude, lng: position.coords.longitude},
+		   icon: icon
+		});
+		marker.setMap($scope.map);
+
+	    console.log('Latitude: '          + position.coords.latitude          + '\n' +
+	          'Longitude: '         + position.coords.longitude         + '\n' +
+	          'Altitude: '          + position.coords.altitude          + '\n' +
+	          'Accuracy: '          + position.coords.accuracy          + '\n' +
+	          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+	          'Heading: '           + position.coords.heading           + '\n' +
+	          'Speed: '             + position.coords.speed             + '\n' +
+	          'Timestamp: '         + position.timestamp                + '\n');
+	};
+
+	// onError Callback receives a PositionError object
+	//
+	function onError(error) {
+	    alert('code: '    + error.code    + '\n' +
+	          'message: ' + error.message + '\n');
+	}
+
+
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
 
   });
