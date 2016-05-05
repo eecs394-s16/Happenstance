@@ -5,7 +5,7 @@
 
 navigation-bar {
   background-color: #ff500a;
-  color: #ffffff;
+  color: #ff500a;
 }
 
 navigation-bar title {
@@ -26,29 +26,22 @@ tab-bar {
 }
 
 tab-bar tab-bar-item {
-<<<<<<< HEAD
-  color: #ffffff;
-=======
   color: #ff500a;
->>>>>>> 7e06c1db23332a4d838ef43bb419507ea4358784
-  font-family: "Avenir";
+  font-family: "FiraSans";
   font-size: 10px;
 }
 
 tab-bar tab-bar-item:selected {
-<<<<<<< HEAD
-  color: #ffffff;
-=======
   color: #ff500a;
->>>>>>> 7e06c1db23332a4d838ef43bb419507ea4358784
 }
 
 tab-bar-item#settings {
   background-image: url(icons/cog.svg);
 }
 
-tab-bar-item#index {
-  background-image: url(icons/home.svg);
+tab-bar-item#home {
+  background-image: url(icons/happenstance.png);
+  /*background-color: #00635D;*/
 }
 
 tab-bar-item#internet {
