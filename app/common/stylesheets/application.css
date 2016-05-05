@@ -4,6 +4,49 @@
   font-weight: 600;
 }
 
+.home {
+    border-radius: 50%;
+    float: center;
+    border-color: white;
+    margin-left: 30%;
+    margin-right: 30%;
+    /*height: 50%;*/
+
+}
+
+.hapicon {
+	float: center;
+    height: 50px;
+    padding-top: 20%;
+}
+
+.tab-buttons {
+	height: 10%;
+	/*background-color: blue;*/
+	border: none;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.buttonorange {
+	background-color: #ff500a;
+	color: white;
+}
+
+.child {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 13%;
+}
+
+.parent {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
 .orange {
 	color: #ff500a;
 }
