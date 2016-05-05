@@ -1,12 +1,22 @@
 angular
   .module('example')
   .controller('VideoController', function($scope, supersonic) {
-  // Video
+   
+      // Video
+  $scope.location = JSON.parse(localStorage.getItem("clicked_location"));
+
+
   var video = document.getElementById("myvideo");
+  video.src = $scope.location.videoUrl;
+  video.load();
+  video.play();
+
 
   //Audio
   var audio = document.getElementById("myaudio");
-
+  audio.src = $scope.location.audioUrl;
+  audio.load();
+  audio.play();
   // Buttons
   var playButton = document.getElementById("play-pause");
   var fullScreenButton = document.getElementById("full-screen");
@@ -112,6 +122,8 @@ angular
     $scope.modalClose = function() {
       supersonic.ui.modal.hide();
     }
+
+  
 
 
   });

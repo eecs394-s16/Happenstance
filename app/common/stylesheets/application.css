@@ -113,3 +113,8 @@ input[type=range]:focus::-ms-fill-upper {
     height: 555px;
 	/*height: 100%;*/
 }
+
+.locationImage {
+	width: 100%;
+	height: auto;
+}

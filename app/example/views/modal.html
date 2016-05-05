@@ -9,36 +9,45 @@
     </super-navbar-title>
   </super-navbar>
 
-<video width="340" id="myvideo" webkit-playsinline="true" autoplay>
-  <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
- <!-- Video Controls -->
-  <div id="video-controls">
-    
-    <input class="progress-bar orange" type="range" id="seek-bar" value="0">
+  <div ng-show = "location.videoUrl" >
+    <video ng-src="{{location.videoUrl}}" width="340" id="myvideo" webkit-playsinline="true" autoplay>
+   
+    Your browser does not support HTML5 video.
+  </video>
+   <!-- Video Controls -->
+    <div id="video-controls">
+      
+      <input class="progress-bar orange" type="range" id="seek-bar" value="0">
 
-    <div class="row">
-      <button class="button button-clear orange col-33" type="button" id="pre-backward"><i class="icon super-ios-arrow-back orange"></i></button>
+      <div class="row">
+        <button class="button button-clear orange col-33" type="button" id="pre-backward"><i class="icon super-ios-arrow-back orange"></i></button>
 
-      <button class="button button-clear orange col-33" type="button" id="play-pause"><i class="icon super-pause orange"></i></button> 
+        <button class="button button-clear orange col-33" type="button" id="play-pause"><i class="icon super-pause orange"></i></button> 
 
 
-      <button class="button button-clear orange col-33" type="button" id="next"><i class="icon super-ios-arrow-forward orange"></i></button>
+        <button class="button button-clear orange col-33" type="button" id="next"><i class="icon super-ios-arrow-forward orange"></i></button>
+      </div>
+
+      <div>
+        Description: {{location.description}}
+      </div>
+
+
     </div>
-
-    <div>
-      Description: Video
-    </div>
-
 
   </div>
 
-  <audio id="myaudio" autoplay>
-    <source src="http://www.stephaniequinn.com/Music/Canon.mp3" type="audio/mpeg">
+
+
+  <div ng-show = "location.audioUrl" >
+    <audio ng-src="{{location.audioUrl}}" id="myaudio" autoplay>
+    
   Your browser does not support the audio element.
   </audio>
 
+  <div>
+    <img class="locationImage" ng-src="{{location.imageUrl}}"></img>
+  </div>
   <div id="audio-controls">
     
     <input class="progress-bar orange" type="range" id="seek-bar-audio" value="0">
@@ -53,8 +62,11 @@
     </div>
 
     <div>
-      Description: Audio
+      Description: {{location.description}}
     </div>
+  </div>
+
+  
 
 
   </div>
