@@ -85,8 +85,8 @@ angular
 
 
 	var onSuccess = function(position) {
-		var icon = { 
-		   url: 'http://developerdrive.developerdrive.netdna-cdn.com/wp-content/uploads/2013/08/ddrive.png'
+		var icon = {
+		   url: 'http://www.stfx.ca/sites/all/themes/stfx/js/virtualtour-SC/google-st-view/google-streetview-icon.png'
 		};
 
 		var marker = new google.maps.Marker({
@@ -113,7 +113,7 @@ angular
 	}
 
 
-	
+
 
 
   });
