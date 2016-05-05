@@ -5,7 +5,7 @@ angular
       name : 'Evanston Public Library',
       videoUrl :null,
       audioUrl : "http://www.stephaniequinn.com/Music/Canon.mp3",
-      location : {
+      loc : {
         lat : 42.048,
         lng : -87.679967,
       },
@@ -17,7 +17,7 @@ angular
       name : '',
       videoUrl :"http://www.w3schools.com/html/mov_bbb.mp4",
       audioUrl : null,
-      location : {
+      loc : {
         lat : 42.058044,
         lng : -87.677041,
       },
@@ -25,6 +25,9 @@ angular
       imageUrl : "https://geo1.ggpht.com/cbk?panoid=JQKsWM6AZwFa93Rc0Zo7-g&output=thumbnail&cb_client=search.TACTILE.gps&thumb=2&w=408&h=256&yaw=82.027817&pitch=0",
 
     };
+
+    var locations = [location1, location2];
+
   	$rootScope.options = {
 	  animate: true
 	};
@@ -58,18 +61,21 @@ angular
 
 	  	//add marker
 
-	  $scope.marker = new google.maps.Marker({
-	  position: $scope.myCenter
+	  locations.forEach(function(location) {
+	  	var marker = new google.maps.Marker({
+		  position: location.loc
+	  	});
+	  	marker.setMap($scope.map);
+
+	  	 // add marker event listener
+		  google.maps.event.addListener(marker,'click',function() {
+		  	var modalView = new supersonic.ui.View("example#modal");
+		  	alert("modal is going to show up!");
+		  	window.localStorage.setItem("clicked_location", JSON.stringify(location));
+		 	supersonic.ui.modal.show(modalView, $rootScope.options);
+		  });
 	  });
 
-	  $scope.marker.setMap($scope.map);
-
-	  // add marker event listener
-	  google.maps.event.addListener($scope.marker,'click',function() {
-	  	var modalView = new supersonic.ui.View("example#modal");
-	  	alert("modal is going to show up!");
-	 	supersonic.ui.modal.show(modalView, $rootScope.options);
-	  });
 
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
