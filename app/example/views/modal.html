@@ -1,0 +1,63 @@
+<div class="padding" ng-controller="VideoController">
+
+  <super-navbar>
+    <super-navbar-button ng-click="modalClose()">
+      Dismiss
+    </super-navbar-button>
+    <super-navbar-title>
+      Video test
+    </super-navbar-title>
+  </super-navbar>
+
+<video width="340" id="myvideo" webkit-playsinline="true" autoplay>
+  <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+ <!-- Video Controls -->
+  <div id="video-controls">
+    
+    <input class="progress-bar orange" type="range" id="seek-bar" value="0">
+
+    <div class="row">
+      <button class="button button-clear orange col-33" type="button" id="pre-backward"><i class="icon super-ios-arrow-back orange"></i></button>
+
+      <button class="button button-clear orange col-33" type="button" id="play-pause"><i class="icon super-pause orange"></i></button> 
+
+
+      <button class="button button-clear orange col-33" type="button" id="next"><i class="icon super-ios-arrow-forward orange"></i></button>
+    </div>
+
+    <div>
+      Description: Video
+    </div>
+
+
+  </div>
+
+  <audio id="myaudio" autoplay>
+    <source src="http://www.stephaniequinn.com/Music/Canon.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
+  <div id="audio-controls">
+    
+    <input class="progress-bar orange" type="range" id="seek-bar-audio" value="0">
+
+    <div class="row">
+      <button class="button button-clear orange col-33" type="button" id="pre-backward-audio"><i class="icon super-ios-arrow-back orange"></i></button>
+
+      <button class="button button-clear orange col-33" type="button" id="play-pause-audio"><i class="icon super-pause orange"></i></button> 
+
+
+      <button class="button button-clear orange col-33" type="button" id="next-audio"><i class="icon super-ios-arrow-forward orange"></i></button>
+    </div>
+
+    <div>
+      Description: Audio
+    </div>
+
+
+  </div>
+
+
+</div>
