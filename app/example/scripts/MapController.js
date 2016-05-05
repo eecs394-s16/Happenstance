@@ -76,6 +76,8 @@ angular
 		  });
 	  });
 
+	  navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
 
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
@@ -111,7 +113,7 @@ angular
 	}
 
 
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	
 
 
   });
