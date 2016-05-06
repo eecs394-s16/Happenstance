@@ -76,9 +76,42 @@ angular
 		  });
 	  });
 
+	  navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
 
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+	var onSuccess = function(position) {
+		var icon = {
+		   url: 'http://www.stfx.ca/sites/all/themes/stfx/js/virtualtour-SC/google-st-view/google-streetview-icon.png'
+		};
+
+		var marker = new google.maps.Marker({
+		   position: {lat: position.coords.latitude, lng: position.coords.longitude},
+		   icon: icon
+		});
+		marker.setMap($scope.map);
+
+	    console.log('Latitude: '          + position.coords.latitude          + '\n' +
+	          'Longitude: '         + position.coords.longitude         + '\n' +
+	          'Altitude: '          + position.coords.altitude          + '\n' +
+	          'Accuracy: '          + position.coords.accuracy          + '\n' +
+	          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+	          'Heading: '           + position.coords.heading           + '\n' +
+	          'Speed: '             + position.coords.speed             + '\n' +
+	          'Timestamp: '         + position.timestamp                + '\n');
+	};
+
+	// onError Callback receives a PositionError object
+	//
+	function onError(error) {
+	    alert('code: '    + error.code    + '\n' +
+	          'message: ' + error.message + '\n');
+	}
+
 
 
 
