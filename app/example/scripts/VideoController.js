@@ -1,8 +1,46 @@
 angular
   .module('example')
   .controller('VideoController', function($scope, supersonic) {
+
+
+
   // Video
   var video = document.getElementById("myvideo");
+
+  //   $('#myModal').on('show', function() {
+  //   video.autoplay = true;
+  //   video.load();
+  // });
+
+  // $('#myModal').on('hide', function() {
+  //   video.autoplay = false;
+  // });
+  //
+  $scope.autoplay = function() {
+    video.autoplay = true;
+    video.load();
+  };
+
+  $scope.stopPlay = function() {
+    video.pause();
+  };
+  $(".modal-transparent").on('show.bs.modal', function () {
+    console.log(".modal-transparent on 'show.bs.modal'");
+  setTimeout( function() {
+    $(".modal-backdrop").addClass("modal-backdrop-transparent");
+  }, 0);
+});
+$(".modal-transparent").on('hidden.bs.modal', function () {
+  console.log(".modal-transparent on 'hidden.bs.modal'");
+  $(".modal-backdrop").addClass("modal-backdrop-transparent");
+});
+
+
+
+
+
+
+
 
   // Buttons
   var playButton = document.getElementById("play-pause");
@@ -68,14 +106,6 @@ angular
 
 
 
-    $scope.openModal = function() {
-      var modalView = new supersonic.ui.View("example#modal");
-      var options = {
-        animate: true
-      }
-
-      supersonic.ui.modal.show(modalView, options);
-    };
 
 
   });

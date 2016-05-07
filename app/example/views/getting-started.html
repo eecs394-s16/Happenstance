@@ -6,34 +6,63 @@
     </super-navbar-title>
   </super-navbar>
 
-<video width="340" id="myvideo" webkit-playsinline="true" autoplay>
-  <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
- <!-- Video Controls -->
-  <div id="video-controls">
-
-    <input class="progress-bar orange" type="range" id="seek-bar" value="0">
-
-    <div class="row">
-      <button class="button button-clear orange col-33" type="button" id="pre-backward">&#60;</button>
-
-      <button class="button button-clear orange col-33" type="button" id="play-pause">&#10073;&#10073;</button>
 
 
-      <button class="button button-clear orange col-33" type="button" id="next">&#62;</button>
+
+      <!-- Trigger the modal with a button -->
+  <button type="button" ng-click="autoplay()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+    <!-- Modal -->
+  <div class="modal modal-transparent fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <video width="340" id="myvideo" webkit-playsinline="true">
+            <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+           <!-- Video Controls -->
+            <div id="video-controls">
+
+              <input class="progress-bar orange" type="range" id="seek-bar" value="0">
+
+              <div class="row">
+                <button class="button button-clear orange col-33" type="button" id="pre-backward">&#60;</button>
+
+                <button class="button button-clear orange col-33" type="button" id="play-pause">&#10073;&#10073;</button>
+
+
+                <button class="button button-clear orange col-33" type="button" id="next">&#62;</button>
+              </div>
+
+              <div>
+                Description: .....
+              </div>
+
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" ng-click="stopPlay()"class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
     </div>
-
-    <div>
-      Description: .....
-    </div>
-
-    <button ng-click="openModal()"> Open a modal</button>
+  </div>
 
 
   </div>
 
-
+  <img src="https://www.advancedcustomfields.com/wp-content/uploads/2013/11/acf-google-maps-field-2.png">
 
 <!-- <p>
 Video courtesy of
