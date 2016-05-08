@@ -101,9 +101,36 @@ angular
 
 
 	//*******************************************
-	//***      Modal logic **********************
+	//***      Geofence **********************
+	document.addEventListener('deviceready', function () {
+	    // window.geofence is now available
+	    window.geofence.initialize().then(function () {
+	        console.log("Successful initialization");
+	    }, function (error) {
+	        console.log("Error", error);
+	    });
+	}, false);
 
-	
+
+	window.geofence.addOrUpdate({
+    id:             "69ca1b88-6fbe-4e80-a4d4-ff4d3748acdb",
+    latitude:       location2.loc.lat,
+    longitude:      location2.loc.lng,
+    radius:         100,
+    transitionType: TransitionType.BOTH,
+    notification: {
+        id:             1,
+        title:          "Welcome to" + location2.name,
+        text:           location2.description,
+        openAppOnClick: true,
+        data: location2
+    }
+	}).then(function () {
+	    console.log('Geofence successfully added');
+	}, function (reason) {
+	    console.log('Adding geofence failed', reason);
+	})
+			
 
 
 
