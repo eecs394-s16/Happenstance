@@ -14,7 +14,7 @@ angular
 
     };
     var location2 = {
-      name : '',
+      name : 'Northwestern University',
       videoUrl :"http://www.w3schools.com/html/mov_bbb.mp4",
       audioUrl : null,
       loc : {
@@ -32,24 +32,7 @@ angular
 	  animate: true
 	};
 
- //  	var map;
-	// $scope.initMap = function() {
-	//   map = new google.maps.Map(document.getElementById('map'), {
-	//     center: {lat: -34.397, lng: 150.644},
-	//     zoom: 8
-	//   });
-	// }
-	// google.maps.event.addDomListener(window, 'load', initializeMap);
 
-	// var options = {
-	// 	center: {lat: -34.397, lng: 150.644},
-	//     zoom: 8
-	// };
-
-	// function initializeMap() {
-	// 	console.log("map initializing...");
-	// 	$scope.map = new google.maps.Map(document.getElementById("map"), options);
-	// };
 	$scope.myCenter = new google.maps.LatLng(42.056897,-87.6792367);
 	function initialize() {
 	  var mapProp = {
@@ -72,7 +55,8 @@ angular
 		  	var modalView = new supersonic.ui.View("example#modal");
 		  	alert("modal is going to show up!");
 		  	window.localStorage.setItem("clicked_location", JSON.stringify(location));
-		 	supersonic.ui.modal.show(modalView, $rootScope.options);
+		 	$("#myModal").modal();
+		 	// supersonic.ui.modal.show(modalView, $rootScope.options);
 		  });
 	  });
 
@@ -111,6 +95,17 @@ angular
 	    alert('code: '    + error.code    + '\n' +
 	          'message: ' + error.message + '\n');
 	}
+
+
+
+
+
+	//*******************************************
+	//***      Modal logic **********************
+
+	
+
+
 
 
 

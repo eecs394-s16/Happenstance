@@ -1,22 +1,60 @@
 angular
   .module('example')
-  .controller('VideoController', function($scope, supersonic) {
+  .controller('ModalController', function($scope, supersonic) {
    
-      // Video
-  $scope.location = JSON.parse(localStorage.getItem("clicked_location"));
 
-
+  
   var video = document.getElementById("myvideo");
-  video.src = $scope.location.videoUrl;
-  video.load();
-  video.play();
-
-
-  //Audio
   var audio = document.getElementById("myaudio");
-  audio.src = $scope.location.audioUrl;
-  audio.load();
-  audio.play();
+
+
+  //   $('#myModal').on('show', function() {
+  //   video.autoplay = true;
+  //   video.load();
+  // });
+
+  // $('#myModal').on('hide', function() {
+  //   video.autoplay = false;
+  // });
+  //
+  $('#myModal').on('show.bs.modal', function() {
+    console.log("modal showing!");
+    $scope.location = JSON.parse(localStorage.getItem("clicked_location"));
+    $scope.$apply();
+    $scope.autoplay();
+
+  });
+
+  $scope.autoplay = function() {
+    // Video
+    video.src = $scope.location.videoUrl;
+    video.load();
+    video.play();
+
+    //Audio
+    audio.src = $scope.location.audioUrl;
+    audio.load();
+    audio.play();
+  };
+
+  $scope.stopPlay = function() {
+    video.pause();
+    audio.pause();
+  };
+
+  $(".modal-transparent").on('show.bs.modal', function () {
+    console.log(".modal-transparent on 'show.bs.modal'");
+    setTimeout( function() {
+      $(".modal-backdrop").addClass("modal-backdrop-transparent");
+    }, 0);
+  });
+  $(".modal-transparent").on('hidden.bs.modal', function () {
+    console.log(".modal-transparent on 'hidden.bs.modal'");
+    $(".modal-backdrop").addClass("modal-backdrop-transparent");
+  });
+
+
+
   // Buttons
   var playButton = document.getElementById("play-pause");
   var fullScreenButton = document.getElementById("full-screen");

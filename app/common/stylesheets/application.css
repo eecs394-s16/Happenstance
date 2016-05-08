@@ -157,7 +157,23 @@ input[type=range]:focus::-ms-fill-upper {
 	/*height: 100%;*/
 }
 
-.locationImage {
+.responsive {
 	width: 100%;
 	height: auto;
+}
+
+.modal-transparent {
+  background: transparent;
+}
+
+.modal-transparent .modal-content {
+  background: transparent;
+}
+
+.modal-backdrop.modal-backdrop-transparent {
+  background: #ffffff;
+}
+.modal-backdrop.modal-backdrop-transparent.in {
+  opacity: .9;
+  filter: alpha(opacity=90);
 }
