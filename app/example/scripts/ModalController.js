@@ -1,9 +1,20 @@
 angular
   .module('example')
   .controller('ModalController', function($scope, supersonic) {
-   
 
-  
+    var hasLiked = false;
+        $scope.likeClick = function () {
+            if (!hasLiked) {
+                hasLiked = true;
+                $scope.liked = 'Unlike';
+                $scope.likeCount += 1;
+            } else {
+                hasLiked = false;
+                $scope.liked = 'Like';
+                $scope.likeCount -= 1;
+            }
+        };
+
   var video = document.getElementById("myvideo");
   var audio = document.getElementById("myaudio");
 
@@ -82,7 +93,7 @@ angular
       }
     });
 
-    
+
     // Event listener for the seek bar
     seekBar.addEventListener("change", function() {
       // Calculate the new time
@@ -161,9 +172,7 @@ angular
       supersonic.ui.modal.hide();
     }
 
-  
+
 
 
   });
-
-
