@@ -2,55 +2,59 @@ angular
   .module('example')
   .controller('MapController', function($rootScope, $scope, supersonic) {
     var location1 = {
-      name : 'Green Door Tavern',
+      name : 'Evanston Public Library',
       videoUrl :null,
-      audioUrl : "https://s3-us-west-2.amazonaws.com/audio.happenstance/Janet+Fuller-+Speakeasies_Abridged_mixdown.mp3",
+      audioUrl : "http://www.stephaniequinn.com/Music/Canon.mp3",
       loc : {
-        lat : 41.894854,
-        lng : -87.6396137
+        lat : 42.048,
+        lng : -87.679967,
       },
-      description : "Curious about the meaning behind that colorful door? Let our food expert Janet Fuller tell you all about how this popular watering hole used to be a speakeasy.",
-      imageUrl : "https://s3-us-west-2.amazonaws.com/audio.happenstance/green_door_tavern.jpg",
-
-    };    https://s3-us-west-2.amazonaws.com/audio.happenstance/green_door_tavern.jpg?X-Amz-Date=20160510T044953Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=f9a132d37fcc6517929ed941b460b0999d5cf38e4e84f02168d31c9b4846c78a&X-Amz-Credential=ASIAJ3NLGIP5K6RJNNSQ/20160510/us-west-2/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=FQoDYXdzEOX//////////wEaDHN6an18CQN73uIAsSLHAdX34fSEmq18WJCd8KfG2emLbd0ALo/3KPmCPKJ2nqVeWteGvVDm5sJ5Bk2r3ERAZlKdxGVeEVHrbrRAfPqGkn/n5vqpYlX5RgizISaovx5aTKijjUuUusB7N0FErLGttEU988htDLF/g10rmXEi43mFb5TAcwJfCCRIsGhBq//GCrwHQ7cGVGO3D3lpW7JM6%2BdpqbqbOxkgWJ8fv3T6clSZVm145m/BQsgvnTlr9eYiBlom7TDu1zdv%2B32t4dIf2s3BcfPAOpwo2r/FuQU%3D
-
-    var location2 = {
-      name : ' International Museum of Surgical Science',
-      videoUrl :null,
-      audioUrl : "https://s3-us-west-2.amazonaws.com/audio.happenstance/Surgical+Museum_Abridged_mixdown.mp3",
-      loc : {
-        lat : 41.9103997,
-        lng : -87.6276496
-      },
-      description : 'Ever thought about exchanging vows surrounded by amputation kits and ancient infant skulls? The International Museum of Surgical Science has hosted a variety of guests, even those about to say “I do.”',
-      imageUrl : "https://s3-us-west-2.amazonaws.com/audio.happenstance/surgical_museum__1__720.jpg",
+      description : "The Evanston Public Library is the public library of Evanston, Illinois. It is a department of the City of Evanston.",
+      imageUrl : "https://upload.wikimedia.org/wikipedia/commons/a/a8/Evanston_Public_Library.JPG",
 
     };
-    var location3 = {
-      name : 'Northwestern University',
+    var location2 = {
+      name : '',
       videoUrl :"http://www.w3schools.com/html/mov_bbb.mp4",
       audioUrl : null,
       loc : {
         lat : 42.058044,
-        lng : -87.677041
+        lng : -87.677041,
       },
       description : "Northwestern University is a private research university with campuses in Evanston and Chicago in Illinois, United States, as well as Doha, Qatar.",
       imageUrl : "https://geo1.ggpht.com/cbk?panoid=JQKsWM6AZwFa93Rc0Zo7-g&output=thumbnail&cb_client=search.TACTILE.gps&thumb=2&w=408&h=256&yaw=82.027817&pitch=0",
 
     };
 
-    var locations = [location1, location2, location3];
+    var locations = [location1, location2];
 
   	$rootScope.options = {
 	  animate: true
 	};
 
+ //  	var map;
+	// $scope.initMap = function() {
+	//   map = new google.maps.Map(document.getElementById('map'), {
+	//     center: {lat: -34.397, lng: 150.644},
+	//     zoom: 8
+	//   });
+	// }
+	// google.maps.event.addDomListener(window, 'load', initializeMap);
 
-	$scope.myCenter = new google.maps.LatLng(41.904373,-87.6336537);
+	// var options = {
+	// 	center: {lat: -34.397, lng: 150.644},
+	//     zoom: 8
+	// };
+
+	// function initializeMap() {
+	// 	console.log("map initializing...");
+	// 	$scope.map = new google.maps.Map(document.getElementById("map"), options);
+	// };
+	$scope.myCenter = new google.maps.LatLng(42.056897,-87.6792367);
 	function initialize() {
 	  var mapProp = {
 	    center: $scope.myCenter,
-	    zoom:14,
+	    zoom:12,
 	    mapTypeId:google.maps.MapTypeId.ROADMAP
 	  };
 	  $scope.map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
@@ -58,8 +62,6 @@ angular
 	  	//add marker
 
 	  locations.forEach(function(location) {
-
-
 	  	var marker = new google.maps.Marker({
 		  position: location.loc
 	  	});
@@ -68,10 +70,9 @@ angular
 	  	 // add marker event listener
 		  google.maps.event.addListener(marker,'click',function() {
 		  	var modalView = new supersonic.ui.View("example#modal");
-		  	// alert("modal is going to show up!");
+		  	alert("modal is going to show up!");
 		  	window.localStorage.setItem("clicked_location", JSON.stringify(location));
-		 	$("#myModal").modal();
-		 	// supersonic.ui.modal.show(modalView, $rootScope.options);
+		 	supersonic.ui.modal.show(modalView, $rootScope.options);
 		  });
 	  });
 
@@ -110,17 +111,6 @@ angular
 	    alert('code: '    + error.code    + '\n' +
 	          'message: ' + error.message + '\n');
 	}
-
-
-
-
-
-	//*******************************************
-	//***      Modal logic **********************
-
-	
-
-
 
 
 
